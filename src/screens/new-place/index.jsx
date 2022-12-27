@@ -15,7 +15,6 @@ const NewPlace = ({ navigation }) => {
   
   const onHandleSubmit = () =>{
     dispatch(savePlace({title,image}));
-    console.warn(title, image)
     navigation.navigate('Places')
     
   };

@@ -16,7 +16,6 @@ const ImageSelector = ({onImagePicker}) => {
             allowsEditing: true,
             aspect: [16,9],
             quality: 0.8,
-            base64: true
         });
 
         setPickedURL(image.uri);
