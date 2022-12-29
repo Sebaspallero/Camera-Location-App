@@ -31,7 +31,7 @@ const Maps = ({ navigation }) => {
     navigation.setOptions({
       headerRight: () => (
         <TouchableOpacity onPress={onHandleSaveLocation}>
-          <Ionicons name="md-save-sharp" size={24} color="black" />
+          <Ionicons name="md-save-sharp" size={24} color="white" />
         </TouchableOpacity>
       ),
     });
