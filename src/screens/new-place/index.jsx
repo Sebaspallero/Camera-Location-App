@@ -3,18 +3,19 @@ import colors from "../../utils/colors";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { savePlace } from "../../store/place.slice";
-import { ImageSelector } from "../../components";
+import { ImageSelector, LocationSelector } from "../../components";
 import { styles } from "./styles";
 
 const NewPlace = ({ navigation }) => {
 
   const [title, setTitle] = useState('');
   const [image, setImage] = useState('');
+  const [coords, setCoords] = useState(null)
 
   const dispatch = useDispatch();
   
   const onHandleSubmit = () =>{
-    dispatch(savePlace({title,image}));
+    dispatch(savePlace({title, image, coords}));
     navigation.navigate('Places')
     
   };
@@ -28,6 +29,10 @@ const NewPlace = ({ navigation }) => {
     setImage(uri)
   }
 
+  const onLocationPicker = (location) =>{
+    setCoords(location)
+  }
+
 
   return (
     <ScrollView style={styles.container}>
@@ -35,6 +40,7 @@ const NewPlace = ({ navigation }) => {
         <Text style={styles.inputLabel}>New Place</Text>
         <TextInput onChangeText={onHandleChange} style={styles.input} placeholder='Titulo'/>
         <ImageSelector onImagePicker={onImagePicker}/>
+        <LocationSelector onLocationPicker={onLocationPicker}/>
         <Button style={styles.button} color={colors.primary} title='Guardar Dirección' onPress={onHandleSubmit}/>
       </View>
     </ScrollView>
